@@ -33,7 +33,7 @@ if(
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             $_POST['email'],
-            sha1($_POST['password']),
+            $_POST['password'],
             $_POST['mobile'],
             $_POST['address'],
             $_POST['birthday'],
