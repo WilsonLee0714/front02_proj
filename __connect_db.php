@@ -6,6 +6,8 @@ $db_pass = 'admin';
 
 $dsn = sprintf('mysql:dbname=%s;host=%s', $db_name, $db_host);
 
+// 不是預設的 3306 請設定 port number
+// mysql:host=localhost;port=3307;dbname=testdb
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
 
@@ -17,7 +19,7 @@ try {
 }
 
 if(! isset($_SESSION)){
-    session_start();
+    session_start(); // 啟用 session 功能
 }
 
 
