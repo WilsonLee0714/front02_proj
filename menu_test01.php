@@ -13,10 +13,16 @@ foreach($data as $v){
         $m_data[$v['sid']] = $v;
     }
 }
+
+
 foreach($data as $v){
     // 如果是第二層選單
     // 如果這項資料的 parent_sid 是 m_data 的 key, 表示它是第二層
     if(isset($m_data[$v['parent_sid']])){
+
+        // 1. 先取得第一層的 key: $v['parent_sid']
+        // 2. 再取得該分類的上一層(第一層): $m_data[$v['parent_sid']]
+        // 3. 將該分類 push 到上一層底下的 children
         $m_data[$v['parent_sid']]['children'][] = $v;
     }
 }

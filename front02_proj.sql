@@ -7,10 +7,13 @@
 -- 伺服器版本: 10.1.36-MariaDB
 -- PHP 版本： 7.1.22
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
+SET SQL_MODE
+= "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT
+= 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone
+= "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,18 +31,26 @@ SET time_zone = "+00:00";
 -- 資料表結構 `categories`
 --
 
-CREATE TABLE `categories` (
-  `sid` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `parent_sid` int(11) NOT NULL DEFAULT '0',
-  `level` int(11) NOT NULL DEFAULT '1'
+CREATE TABLE `categories`
+(
+  `sid` int
+(11) NOT NULL,
+  `name` varchar
+(30) NOT NULL,
+  `parent_sid` int
+(11) NOT NULL DEFAULT '0',
+  `level` int
+(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `categories`
 --
 
-INSERT INTO `categories` (`sid`, `name`, `parent_sid`, `level`) VALUES
+INSERT INTO `categories` (`
+sid`,
+`name
+`, `parent_sid`, `level`) VALUES
 (1, '程式設計', 0, 1),
 (2, '繪圖軟體', 0, 1),
 (3, '網際網路應用', 0, 1),
@@ -57,16 +68,25 @@ INSERT INTO `categories` (`sid`, `name`, `parent_sid`, `level`) VALUES
 -- 資料表結構 `members`
 --
 
-CREATE TABLE `members` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `mobile` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
+CREATE TABLE `members`
+(
+  `id` int
+(11) NOT NULL,
+  `email` varchar
+(255) NOT NULL,
+  `password` varchar
+(255) NOT NULL,
+  `mobile` varchar
+(255) NOT NULL,
+  `address` varchar
+(255) NOT NULL,
   `birthday` date NOT NULL,
-  `hash` varchar(255) NOT NULL,
-  `activated` int(11) NOT NULL DEFAULT '0',
-  `nickname` varchar(255) NOT NULL,
+  `hash` varchar
+(255) NOT NULL,
+  `activated` int
+(11) NOT NULL DEFAULT '0',
+  `nickname` varchar
+(255) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -74,7 +94,10 @@ CREATE TABLE `members` (
 -- 資料表的匯出資料 `members`
 --
 
-INSERT INTO `members` (`id`, `email`, `password`, `mobile`, `address`, `birthday`, `hash`, `activated`, `nickname`, `created_at`) VALUES
+INSERT INTO `members` (`
+id`,
+`email
+`, `password`, `mobile`, `address`, `birthday`, `hash`, `activated`, `nickname`, `created_at`) VALUES
 (1, 'der@gggg.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0912777888', '高雄市', '1990-10-10', '29310692ad4367564970150119b767d726e0ec78', 0, '小華2', '2018-11-08 11:21:46');
 
 -- --------------------------------------------------------
@@ -83,10 +106,14 @@ INSERT INTO `members` (`id`, `email`, `password`, `mobile`, `address`, `birthday
 -- 資料表結構 `orders`
 --
 
-CREATE TABLE `orders` (
-  `sid` int(11) NOT NULL,
-  `member_sid` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
+CREATE TABLE `orders`
+(
+  `sid` int
+(11) NOT NULL,
+  `member_sid` int
+(11) NOT NULL,
+  `amount` int
+(11) NOT NULL,
   `order_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -94,7 +121,10 @@ CREATE TABLE `orders` (
 -- 資料表的匯出資料 `orders`
 --
 
-INSERT INTO `orders` (`sid`, `member_sid`, `amount`, `order_date`) VALUES
+INSERT INTO `orders` (`
+sid`,
+`member_sid
+`, `amount`, `order_date`) VALUES
 (4, 1, 1820, '2016-03-25 12:15:08'),
 (5, 1, 1820, '2016-03-25 12:19:05'),
 (9, 1, 2070, '2016-06-01 11:01:37'),
@@ -107,19 +137,28 @@ INSERT INTO `orders` (`sid`, `member_sid`, `amount`, `order_date`) VALUES
 -- 資料表結構 `order_details`
 --
 
-CREATE TABLE `order_details` (
-  `sid` int(11) NOT NULL,
-  `order_sid` int(11) NOT NULL,
-  `product_sid` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
+CREATE TABLE `order_details`
+(
+  `sid` int
+(11) NOT NULL,
+  `order_sid` int
+(11) NOT NULL,
+  `product_sid` int
+(11) NOT NULL,
+  `price` int
+(11) NOT NULL,
+  `quantity` int
+(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `order_details`
 --
 
-INSERT INTO `order_details` (`sid`, `order_sid`, `product_sid`, `price`, `quantity`) VALUES
+INSERT INTO `order_details` (`
+sid`,
+`order_sid
+`, `product_sid`, `price`, `quantity`) VALUES
 (1, 4, 22, 580, 1),
 (2, 4, 17, 620, 2),
 (3, 4, 22, 580, 1),
@@ -140,17 +179,27 @@ INSERT INTO `order_details` (`sid`, `order_sid`, `product_sid`, `price`, `quanti
 -- 資料表結構 `products`
 --
 
-CREATE TABLE `products` (
-  `sid` int(11) NOT NULL,
-  `author` varchar(50) NOT NULL,
-  `bookname` varchar(60) NOT NULL,
-  `category_sid` int(11) NOT NULL DEFAULT '1',
-  `book_id` varchar(30) NOT NULL,
+CREATE TABLE `products`
+(
+  `sid` int
+(11) NOT NULL,
+  `author` varchar
+(50) NOT NULL,
+  `bookname` varchar
+(60) NOT NULL,
+  `category_sid` int
+(11) NOT NULL DEFAULT '1',
+  `book_id` varchar
+(30) NOT NULL,
   `publish_date` date NOT NULL,
-  `pages` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `isbn` varchar(30) NOT NULL,
-  `on_sale` tinyint(1) NOT NULL DEFAULT '1',
+  `pages` int
+(11) NOT NULL,
+  `price` int
+(11) NOT NULL,
+  `isbn` varchar
+(30) NOT NULL,
+  `on_sale` tinyint
+(1) NOT NULL DEFAULT '1',
   `introduction` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -158,7 +207,10 @@ CREATE TABLE `products` (
 -- 資料表的匯出資料 `products`
 --
 
-INSERT INTO `products` (`sid`, `author`, `bookname`, `category_sid`, `book_id`, `publish_date`, `pages`, `price`, `isbn`, `on_sale`, `introduction`) VALUES
+INSERT INTO `products` (`
+sid`,
+`author
+`, `bookname`, `category_sid`, `book_id`, `publish_date`, `pages`, `price`, `isbn`, `on_sale`, `introduction`) VALUES
 (1, '洪一新、許瑞珍', '圖解C++程式設計', 16, 'PG30036', '2010-02-08', 624, 560, '978-986-201-306-9 ', 1, 'C++語言融合了傳統的程序式語言、物件導向設計以及C++樣版三種不同程式設計方式，使它成為近代最受重視且普及的程式語言。\r\n本書強調理論與實作並重，依C++功能循序漸進、由淺入深，詳實地說明了C++語言相關的語法，書中融入大量的程式範例，每一個範例程式都經過測試，可以正確無誤地執行，並且從實作中熟悉各種程式設計技巧。\r\n除了課文內大量的程式範例外，每章均有「上機實習課程」單元，可以讓使用者有更多的實際演練機會。在課後大量精心設計的習題，驗收學習成效，提供更多的程式實作經驗。'),
 (2, '吳睿紘', '圖解資料結構-使用JAVA', 1, 'PG30035', '2009-12-15', 384, 420, '978-986-201-281-9 ', 1, '資料結構一直是電腦科學領域非常重要的基礎課程，本書是以教導如何將資料結構概念用Java程式語言來實作的重要著作。其特色在於將複雜的理論輔以圖文並茂的解說方式，搭配豐富的圖表及範例介紹，將資料結構中重要的觀念及演算法加以詮釋，集中學習焦點。\r\n每章重要理論均有範例實作，書中收錄了精華的演算法及程式的執行畫面，隨書光碟則附與完整的範例程式，提供詳盡的探討，提昇學習的成效。\r\n\r\n◎內容架構完整，邏輯清楚，採用豐富的圖例來闡述基本觀念及應用，有效提高可讀性。\r\n◎以JAVA程式語言實作資料結構中的重要理論，以範例程式說明資料結構的內涵。\r\n◎精選重點習題，參斟國家重要的考試命題重點，課後立即複習，達到事半功倍的效果。'),
 (3, '江家頡、陳怡均', 'Visual C# 2008網路遊戲程式設計', 1, 'PG30034', '2009-11-27', 424, 480, '978-986-201-278-9 ', 1, '本書特色在於網路與遊戲的結合，如何把動畫加入在遊戲中呈現，並且撰寫出最簡單扼要的程式碼。再來是網路程式撰寫部份，如何把網路功能加入到遊戲裡面達到玩家與玩家溝通的效果，結合遊戲概念與網路程式的實作使遊戲變的有趣。\r\n全書共分三篇16章，內容由淺入深，首先介紹Visual C#的基本語法與控制項使用方式，讓沒接觸過Visual C#的讀者能夠快速上手。接著簡單的說明網路概念，並教各位如何利用Visual C#來寫Socket網路程式，進而完成一個簡單的聊天室。而第二、三篇則是實作基本與進階的網路遊戲。透過不斷的實作，讓讀者能夠從中獲得更多的經驗值。\r\n本書對於想進入遊戲設計門檻者而言可說是最佳學習途徑，不僅快速領略Visual C# 2008程式設計的基礎，更藉由各個範例程式瞭解視窗程式的高階設計技巧，期使本書能對讀者在視窗程式設計能有卓著的進步。'),
@@ -189,17 +241,24 @@ INSERT INTO `products` (`sid`, `author`, `bookname`, `category_sid`, `book_id`, 
 -- 資料表結構 `product_color`
 --
 
-CREATE TABLE `product_color` (
-  `sid` int(11) NOT NULL,
-  `product_sid` int(11) NOT NULL,
-  `color` varchar(255) NOT NULL
+CREATE TABLE `product_color`
+(
+  `sid` int
+(11) NOT NULL,
+  `product_sid` int
+(11) NOT NULL,
+  `color` varchar
+(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `product_color`
 --
 
-INSERT INTO `product_color` (`sid`, `product_sid`, `color`) VALUES
+INSERT INTO `product_color` (`
+sid`,
+`product_sid
+`, `color`) VALUES
 (1, 2, '紅色'),
 (2, 2, '藍色');
 
@@ -211,41 +270,51 @@ INSERT INTO `product_color` (`sid`, `product_sid`, `color`) VALUES
 -- 資料表索引 `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`sid`);
+ADD PRIMARY KEY
+(`sid`);
 
 --
 -- 資料表索引 `members`
 --
 ALTER TABLE `members`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+ADD PRIMARY KEY
+(`id`),
+ADD UNIQUE KEY `email`
+(`email`);
 
 --
 -- 資料表索引 `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`sid`);
+ADD PRIMARY KEY
+(`sid`);
 
 --
 -- 資料表索引 `order_details`
 --
 ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`sid`),
-  ADD KEY `order_sid` (`order_sid`),
-  ADD KEY `product_sid` (`product_sid`);
+ADD PRIMARY KEY
+(`sid`),
+ADD KEY `order_sid`
+(`order_sid`),
+ADD KEY `product_sid`
+(`product_sid`);
 
 --
 -- 資料表索引 `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`sid`);
+ADD PRIMARY KEY
+(`sid`);
 
 --
 -- 資料表索引 `product_color`
 --
 ALTER TABLE `product_color`
-  ADD PRIMARY KEY (`sid`),
-  ADD KEY `product_sid` (`product_sid`);
+ADD PRIMARY KEY
+(`sid`),
+ADD KEY `product_sid`
+(`product_sid`);
 
 --
 -- 在匯出的資料表使用 AUTO_INCREMENT
@@ -255,37 +324,43 @@ ALTER TABLE `product_color`
 -- 使用資料表 AUTO_INCREMENT `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `sid` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- 使用資料表 AUTO_INCREMENT `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表 AUTO_INCREMENT `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `sid` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表 AUTO_INCREMENT `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `sid` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用資料表 AUTO_INCREMENT `products`
 --
 ALTER TABLE `products`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `sid` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- 使用資料表 AUTO_INCREMENT `product_color`
 --
 ALTER TABLE `product_color`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sid` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
