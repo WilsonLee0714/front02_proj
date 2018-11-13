@@ -32,29 +32,6 @@ switch ($method){
         require __DIR__. '/cart_put.php';
         exit;
     case 'DELETE':
+        require __DIR__. '/cart_delete.php';
         exit;
-
-
 }
-
-
-
-
-
-
-
-
-echo json_encode($result, JSON_UNESCAPED_UNICODE);
-
-
-
-
-
-
-
-
-
-
-
-
-
