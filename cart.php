@@ -23,13 +23,13 @@ $body = json_decode($body, true);
 
 switch ($method){
     case 'GET':
+        require __DIR__. '/cart_get.php';
         exit;
-
     case 'POST':
         require __DIR__. '/cart_post.php';
         exit;
     case 'PUT':
-
+        require __DIR__. '/cart_put.php';
         exit;
     case 'DELETE':
         exit;
@@ -43,4 +43,18 @@ switch ($method){
 
 
 
+
 echo json_encode($result, JSON_UNESCAPED_UNICODE);
+
+
+
+
+
+
+
+
+
+
+
+
+
