@@ -1,6 +1,10 @@
 <?php
 require __DIR__.'/__connect_db.php';
 
+// HTTP HEADER
+// 設定 MIME
+header('Content-Type: application/json');
+
 if(! isset($_SESSION['cart'])){
     $_SESSION['cart'] = [];
 }
