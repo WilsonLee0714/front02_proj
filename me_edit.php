@@ -19,7 +19,7 @@ $bdata = json_decode($entityBody, true);
 
 $result['data_from'] = $bdata;
 
-$reuire_fields = [
+$require_fields = [
     'password',
     'mobile',
     'address',
@@ -27,7 +27,7 @@ $reuire_fields = [
     'nickname',
 ];
 
-foreach($reuire_fields as $rf){
+foreach($require_fields as $rf){
     if(empty($bdata[$rf])){
         $result['resultCode'] = 405;
         $result['errorMsg'] = $rf. '為必要欄位';
